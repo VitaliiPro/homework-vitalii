@@ -1,14 +1,13 @@
 let firstNum = '';
 do {
     firstNum = prompt('Введіть перше ціле число:');
-} while (firstNum === NaN || firstNum === null || firstNum === '');
-let firstInt = +firstNum;
+} while (isNaN(firstNum) || firstNum % 1 !== 0 || firstNum === '');
 console.log(firstNum);
 
 let secondNum = '';
 do {
     secondNum = prompt('Введіть друге ціле число:');
-} while (secondNum === NaN || secondNum === null || secondNum === '');
+} while (isNaN(secondNum) || secondNum % 1 !== 0  || secondNum === '');
 console.log(secondNum);
 
 const missNumber = confirm('Чи потрібно пропускати парні числа?');
