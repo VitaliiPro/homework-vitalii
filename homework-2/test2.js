@@ -18,10 +18,8 @@ const missNumber = confirm('Чи потрібно пропускати парн�
 
 let sum = 0;
 for(let i = firstNum; i <= secondNum; i++){
-    if (missNumber === true) {
-        if (i % 2 !== 0) {
-           sum += i;
-        };
+    if (missNumber === true && i % 2 === 0) {
+        continue;
     } else {
         sum += i;
     };
