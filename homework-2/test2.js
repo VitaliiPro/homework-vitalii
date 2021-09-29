@@ -1,13 +1,13 @@
 let firstNum = '';
 do {
     firstNum = +prompt('Введіть перше ціле число:');
-} while (isNaN(firstNum) || firstNum % 1 !== 0 || firstNum.length === 0);
+} while (isNaN(firstNum) || firstNum % 1 !== 0 || firstNum.length === '');
 console.log(firstNum);
 
 let secondNum = '';
 do {
     secondNum = +prompt('Введіть друге ціле число:');
-} while (isNaN(secondNum) || secondNum % 1 !== 0  || secondNum.length === 0);
+} while (isNaN(secondNum) || secondNum % 1 !== 0  || secondNum === '');
 console.log(secondNum);
 
 if (firstNum > secondNum) {
