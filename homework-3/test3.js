@@ -27,8 +27,7 @@ const capitalizeFirstLetter = (word) => {
 //Function #4
 
 const nettoSalary = (salary) => {
-    let result = salary - ((19.5 * salary) / 100);
-    return result;
+    return salary - ((19.5 * salary) / 100);
 };
 
 //Function #5
@@ -92,9 +91,9 @@ const isPalyndrom = (str) => {
     str = str.toLowerCase().replaceAll(" ", "");
     let strReverse = str.split('').reverse().join('');
     if (strReverse === str) {
-        return 'yes';
+        return 'true';
     } 
-    return 'no';
+    return 'false';
 };
 
 //Function #11
