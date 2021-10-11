@@ -42,18 +42,18 @@ const getModa = (...numbers) => {
 const getAverage = (...numbers) => {
     const arr = numbers.filter(number => Number.isInteger(number));
     const sumNum = arr.reduce((sum, current) => sum + current);
-    const averageValue = +(sumNum / arr.length).toFixed(2);
-    return averageValue;
+    return +(sumNum / arr.length).toFixed(2);
 };
 
 //#4
 
 const getMedian = (...numbers) => {
     const arr = numbers.filter(number => Number.isInteger(number)).sort((a, b) => a - b);
+    const partOfTheArray = arr.length / 2;
     if (arr.length % 2) {
-        return arr[Math.floor(arr.length / 2)];
+        return arr[Math.floor(partOfTheArray)];
     }
-    return (arr[arr.length / 2] + arr[arr.length / 2 - 1]) / 2;
+    return (arr[partOfTheArray] + arr[partOfTheArray - 1]) / 2;
 };
 
 //#5
@@ -66,7 +66,7 @@ const countPositiveNumbers = (...numbers) => numbers.filter(number => Number.isI
 
 //#7
 
-const getDividedByFive = (...numbers) => numbers.filter(number => Number.isInteger(number) && !(number % 5));
+const getDividedByFive = (...numbers) => numbers.filter(number => Number.isInteger(number) && (number % 5 === 0));
 
 //#8 
 
@@ -74,7 +74,8 @@ const replaceBadWords = (string) => {
     let badWords = ['shit', 'fuck'];
     let clearString = string;
     for(let word of badWords){
-        clearString = clearString.split(word).join('****');
+        let badWord = '*'.repeat(word.length)
+        clearString = clearString.split(word).join(badWord);
     }
     return clearString;
 };
@@ -85,7 +86,7 @@ const divideByThree = (word) => {
     if (word.length < 3) {
         return word;
     }
-    const wordLowCase = word.trim().toLowerCase();
+    const wordLowCase = word.toLowerCase().replaceAll(" ", "");
     let arr = [];
     for (let i = 0; i < wordLowCase.length; i += 3) {
         let dividedWord = wordLowCase.slice(i, i + 3);
@@ -110,6 +111,6 @@ console.log(countPositiveNumbers(1, -2, 3, -4, -5, 6));
 //#7
 console.log(getDividedByFive(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2));
 //#8
-console.log(replaceBadWords("Are you fucking kidding?"));
+console.log(replaceBadWords("Are you fucking kidding? Holy shit! It's bullshit!"));
 //#9
 console.log(divideByThree("Commander"));
