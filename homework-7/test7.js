@@ -35,7 +35,7 @@ function getMySalary() {
     return {
          salary: +randomSalary.toFixed(2),
          taxes: +(this.tax * randomSalary).toFixed(2),
-         profit: +(randomSalary - this.tax).toFixed(2)
+         profit: +(randomSalary - (this.tax * randomSalary)).toFixed(2)
     };
 };
 
