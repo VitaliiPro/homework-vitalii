@@ -28,32 +28,35 @@ const students = [{
 
 // #1
 
-function getSubjects(students) {
-    const subName = Object.keys(students.subjects);
-    const result = subName.map((letter) => (letter.charAt(0).toUpperCase() + letter.slice(1)).replaceAll('_', ' '));
+function getSubjects(student) {
+    const subjects = Object.keys(student.subjects);
+    const result = subjects.map((subject) => (subject.charAt(0).toUpperCase() + subject.slice(1).toLowerCase()).replaceAll('_', ' '));
     return result;
 };
 
-console.log(getSubjects(students[1]));
+console.log(getSubjects(students[0]));
 
 //#2
 
-function getAverageMark (students) {
-    const assessments = Object.values(students.subjects);
-    const combinedArrays = assessments[0].concat(assessments[1], assessments[2]);
-    const sumAssessments = combinedArrays.reduce((previousValue, currentValue) => previousValue + currentValue);
-    return (sumAssessments / combinedArrays.length).toFixed(2);
+function getAverageMark (student) {
+    const marks = [];
+    for (let key in student.subjects) {
+      const subjMarks = student.subjects[key];
+      marks.push(...subjMarks);
+    }
+    const sumAssessments = marks.reduce((previousValue, currentValue) => previousValue + currentValue);
+    return (sumAssessments / marks.length).toFixed(2);
 };
 
 console.log(getAverageMark(students[0]));
 
 //#3 
 
-function getStudentInfo(students) {
+function getStudentInfo(student) {
   return {
-    course: students.course,
-    name: students.name,
-    averageMark: getAverageMark(students)
+    course: student.course,
+    name: student.name,
+    averageMark: getAverageMark(student)
   }
 };
 
