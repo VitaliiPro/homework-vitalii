@@ -31,7 +31,7 @@ console.log(getTotalTaxes.call(ukraine));
 function getMySalary() {
     const min = 1500;
     const max = 2000;
-    const randomSalary = min - 0.5 + Math.random() * (max - min + 1);
+    const randomSalary = min + Math.random() * (max - min + 1);
     return {
          salary: +randomSalary.toFixed(2),
          taxes: +(this.tax * randomSalary).toFixed(2),
