@@ -9,6 +9,9 @@ const divContainer = document.createElement("div");
 
 const generateBlocks = () => {
   const boxContainer = document.querySelector(".container");
+  while(boxContainer.firstChild) {
+    boxContainer.removeChild(boxContainer.firstChild);
+  }
   for (let i = 0; i < 25; i++) {
     const square = document.createElement("div");
     square.classList.add("box");
@@ -20,6 +23,8 @@ const generateBlocks = () => {
 generateBlocks();
 
 const generateBlocksInterval = () => {
-    setInterval(generateBlocks, 1000);
+	setInterval(generateBlocks, 1000);
 }
+generateBlocksInterval();
+
 
