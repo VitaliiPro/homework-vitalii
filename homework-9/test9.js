@@ -1,11 +1,24 @@
+const findDiv = () => {
+  const createDiv = () => {
+    const divContainer = document.createElement("div");
+    divContainer.classList.add("container");
+    document.body.appendChild(divContainer);
+  }
+if(document.body.classList.contains("container")) {
+    while(boxContainer.firstChild) {
+      boxContainer.removeChild(boxContainer.firstChild);
+    }
+    return createDiv();
+  } else {
+    return createDiv();
+  }
+}
+
+findDiv();
 
 const getRandomColor = () => {
   return (Math.floor(Math.random() * (255 - 10)) + 10);
 }
-
-const divContainer = document.createElement("div");
-  divContainer.classList.add("container");
-  document.body.appendChild(divContainer);
 
 const generateBlocks = () => {
   const boxContainer = document.querySelector(".container");
