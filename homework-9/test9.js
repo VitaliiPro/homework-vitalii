@@ -1,21 +1,25 @@
-const boxes = document.querySelectorAll(".box");
 
 const getRandomColor = () => {
   return (Math.floor(Math.random() * (255 - 10)) + 10);
 }
 
+const divContainer = document.createElement("div");
+  divContainer.classList.add("container");
+  document.body.appendChild(divContainer);
+
 const generateBlocks = () => {
-  for (i = 0; i < boxes.length; i++) {
-    boxes[i].style.backgroundColor = `rgb(${getRandomColor()}, ${getRandomColor()}, ${getRandomColor()})`;
-    boxes[i].style.width = '50px';
-    boxes[i].style.height = '50px';
+  const boxContainer = document.querySelector(".container");
+  for (let i = 0; i < 25; i++) {
+    const square = document.createElement("div");
+    square.classList.add("box");
+    square.style.backgroundColor = `rgb(${getRandomColor()}, ${getRandomColor()}, ${getRandomColor()})`
+    boxContainer.append(square);
   }
 };
 
 generateBlocks();
 
-const generateBlocksInterval = () =>{
-  setInterval(() => generateBlocks(), 1000);
+const generateBlocksInterval = () => {
+    setInterval(generateBlocks, 1000);
 }
 
-generateBlocksInterval();
