@@ -5,9 +5,7 @@ const findDiv = () => {
     document.body.appendChild(divContainer);
   }
 if(document.body.classList.contains("container")) {
-    while(boxContainer.firstChild) {
-      boxContainer.removeChild(boxContainer.firstChild);
-    }
+    divContainer.innerHTML = " ";
     return createDiv();
   } else {
     return createDiv();
@@ -22,9 +20,7 @@ const getRandomColor = () => {
 
 const generateBlocks = () => {
   const boxContainer = document.querySelector(".container");
-  while(boxContainer.firstChild) {
-    boxContainer.removeChild(boxContainer.firstChild);
-  }
+  boxContainer.innerHTML = " ";
   for (let i = 0; i < 25; i++) {
     const square = document.createElement("div");
     square.classList.add("box");
