@@ -1,39 +1,35 @@
-const findDiv = () => {
-  const createDiv = () => {
-    const divContainer = document.createElement("div");
-    divContainer.classList.add("container");
-    document.body.appendChild(divContainer);
-  }
-if(document.body.classList.contains("container")) {
-    divContainer.innerHTML = " ";
-    return createDiv();
+const getContainerByClassName = (className) => {
+  let div = document.querySelector(`.${className}`);
+
+  if (div) {
+    div.innerHTML = " ";
   } else {
-    return createDiv();
+    div = document.createElement("div");
+    div.classList.add("container");
+    document.body.appendChild(div);
   }
-}
 
-findDiv();
+  return div;
+};
 
-const getRandomColor = () => {
-  return (Math.floor(Math.random() * (255 - 10)) + 10);
-}
+const getHex = () => {
+  return `#${Math.random().toString(16).slice(2,8)}`;
+};
 
 const generateBlocks = () => {
-  const boxContainer = document.querySelector(".container");
-  boxContainer.innerHTML = " ";
+  const boxContainer = getContainerByClassName('container');
   for (let i = 0; i < 25; i++) {
     const square = document.createElement("div");
     square.classList.add("box");
-    square.style.backgroundColor = `rgb(${getRandomColor()}, ${getRandomColor()}, ${getRandomColor()})`
+    square.style.backgroundColor = getHex();
     boxContainer.append(square);
   }
 };
 
-generateBlocks();
-
 const generateBlocksInterval = () => {
 	setInterval(generateBlocks, 1000);
-}
+};
+
 generateBlocksInterval();
 
 
