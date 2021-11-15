@@ -16,16 +16,19 @@ function* newFontGenerator(size) {
     let fontSize = yield size;
     while(true) {
         switch (fontSize ) {
-            case "up":
+            case "up": {
                 size += 2;
                 fontSize = yield size;
                 break;
-            case "down":
+            }
+            case "down": { 
                 size -= 2;
                 fontSize = yield size;
                 break;
-            default: 
+            }
+            default: { 
                 fontSize = yield size;
+            }
         }
     }
 }
